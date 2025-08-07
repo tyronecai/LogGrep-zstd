@@ -24,10 +24,9 @@ RAM: 188GB
 CentOS 7.X 64bit
 
 ## Compiler Version
-$ /opt/rh/devtoolset-11/root/usr/bin/gcc -version
 gcc (GCC) 11.2.1 20220127 (Red Hat 11.2.1-9)
 
-yum install zstd-devel libzstd-devel
+yum install libzstd-devel
 
 # Compilation and quick test
 ## Compilation
