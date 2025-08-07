@@ -14,10 +14,6 @@ A minimal working example for quick test. Each folder corresponds to a kind of l
 Empty by default. Compressed results during quick test can be found here.
 ## LogHub_Seg_zip
 Empty by default. Compressed results during large test can be found here.
-## output
-Empty by default.
-## zstd-dev
-zstd used by facebook to serve as the basic compression tool for LogGrep
 
 # Supported environments
 ## Hardware
@@ -25,31 +21,19 @@ CPU: 2× Intel Xeon E5-2682 2.50GHz CPUs (with 16 cores)
 RAM: 188GB
 
 ## OS Version
-Red Hat 4.8.5 with Linux kernel 3.10.0
-
-Ubuntu 11.3.0 with Linux kernel 5.15.0
-
-Above are platforms we have tested suceffully, if you have trouble with other kernal version, please contact thuweijy@vip.163.com
+CentOS 7.X 64bit
 
 ## Compiler Version
-gcc version 4.8.5 20150623
+$ /opt/rh/devtoolset-11/root/usr/bin/gcc -version
+gcc (GCC) 11.2.1 20220127 (Red Hat 11.2.1-9)
 
-## Other requirements
-Python version >= 3.6.8, use ``pip3 install --upgrade requests`` to install non-listed requirement
-
-use ``yum groupinstall 'Development Tools`` to install other requirements.
+yum install zstd-devel libzstd-devel
 
 # Compilation and quick test
 ## Compilation
-``mkdir ./output``
-
 ``mkdir ./example_zip``
 
-``cd ./zstd-dev/lib``
-
-``make``
-
-``cd ../../compression``
+``cd compression``
 
 ``make``
 
@@ -58,6 +42,7 @@ use ``yum groupinstall 'Development Tools`` to install other requirements.
 ``cd ./query``
 
 ``make``
+
 ## Quick test
 ``cd ./compression``
 
@@ -65,7 +50,7 @@ use ``yum groupinstall 'Development Tools`` to install other requirements.
 
 Then you can find compressed files in ./example_zip/.
 
-``cd ./cmdline_loggrep``
+``cd ./query``
 
 ``./thulr_cmdline [Compressed Folder] [QUERY]``
 
@@ -76,6 +61,7 @@ Then you can find compressed files in ./example_zip/.
 All testing query for quick test can be found at ./query4quicktest.txt. For example, to run query on Apache logs, you can use command as follow:
 
 ``./thulr_cmdline ../example_zip/Apache "error and Invalid URI in request"``
+
 ## Large test
 Download large dataset from https://zenodo.org/record/7056802#.Yxm1RexBwq1 to ../LogHub_Seg/
 

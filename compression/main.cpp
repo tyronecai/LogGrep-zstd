@@ -310,8 +310,8 @@ void proc(string input_path, string output_path, string cp_mode, string zip_mode
         //if(it ->first == ((12<<POS_TEMPLATE) + (1<<POS_VAR))) debug = true;//E12_V1s
         VarArray * temp = it -> second;
         int varTag = it ->first;
-        int templateNum = varTag >> POS_TEMPLATE;
-        int variableNum = (varTag >> POS_VAR) & 0xff;
+        //int templateNum = varTag >> POS_TEMPLATE;
+        //int variableNum = (varTag >> POS_VAR) & 0xff;
 
 		if ((!sub && !dict) || temp ->nowPos < 100){
             //TODO(var)		outputVar(fileName, it ->second);
@@ -508,7 +508,7 @@ void proc(string input_path, string output_path, string cp_mode, string zip_mode
     encoder -> output(output_path, 0);
     double ctime = ___StatTime_End(ctime_s);
 	
-    free(Eid);
+    delete []Eid;
     for(auto &temp: variable_mapping){
         free(temp.second);
     }

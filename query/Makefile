@@ -3,16 +3,15 @@ FILE_DIR =
 TEMP_DIR = 
 REFER_DIR = ../compression/
 #REFER2_DIR = ../LogGrep_compression_zstd/LZMA/
-LIBDIR =../zstd-dev/lib
-LIB = $(LIBDIR)/libzstd.a
+#LIBDIR =../zstd-dev/lib
+#LIB = $(LIBDIR)/libzstd.a
 
-EXE_DIR = ../output/
 #######################
 RM	= rm -fr
 DEL_FILE	= rm -f
 
 CXX	= g++
-CPPFLAGS = -w -c -g -Wall -ggdb -lprofiler
+CPPFLAGS = -w -c -g -Wall -ggdb
 #CPPFLAGS = -O2 -w -c -g
 LANGUAGE = -D	ENGLISH
 READLINE = -D	READLINE_LIBRARY
@@ -74,8 +73,7 @@ all: APP clean
 APP: $(BIN_OBJECT)
 	
 $(BIN_OBJECT):$(OBJECTS)
-	$(CXX) -o  $(BIN_OBJECT) $(OBJECTS) $(LIB) -l dl -lprofiler
-	cp $(BIN_OBJECT) $(EXE_DIR)
+	$(CXX) -o  $(BIN_OBJECT) $(OBJECTS) -lzstd -ldl
 	
 $(OBJECTS):$(SRC_OBJECTS) $(H_OBJECTS)
 	$(CXX) $(CPPFLAGS) $(SRC_OBJECTS)

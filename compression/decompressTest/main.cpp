@@ -16,10 +16,11 @@
 #include <cmath>
 #include <vector>
 #include <zstd.h>
+
 #include "../constant.h"
 #include "../util.h"
 #include "../Coffer.h"
-#include "../LZMA/LzmaLib.h"
+
 using namespace std;
 
 

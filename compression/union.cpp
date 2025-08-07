@@ -261,7 +261,7 @@ void Union::buildMapping(VarArray* varMapping){
             }
         }
     }
-    free(Formats);
+    delete []Formats;
     //printf("dictionary entry generate finish\n");
     
     if(patCount != maxDicPat) return;
@@ -480,7 +480,7 @@ char* Union::getLCS(char* t1, char* t2){
     for(int i = 0; i <= m; i++){
         free(DP[i]);
     }
-    free(DP);
+    delete []DP;
     return LCS;
 }
 /*
